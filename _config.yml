@@ -1,48 +1,4 @@
 title: adbreeker
-description: adbreeker's Personal Website
-baseurl: ""
+description: Personal Website
 
 username: adbreeker
-typing_text: Game Developer / Coding Passionate
-
-email: adbreeker@gmail.com
-github_username: adbreeker
-
-show_skills_card: true
-skills_title: Skills
-
-show_timeline_card: true
-timeline_title: Education
-
-show_projects_card: true
-show_os_projects: true
-os_projects_title: Some of my projects
-
-show_contact_card: true
-contact_title: Contacts
-contact_description: Contact me
-
-repository: adbreeker/adbreeker.github.io
-github_pages:
-  - VerdeCraft
-  
-projects:
-  sort_by: stars
-  exclude:
-    archived: true
-    forks: true
-    projects:
-      - adbreeker
-
-plugins:
-  - "jekyll-github-metadata"
-
-exclude:
-  [
-    "_assets",
-    "Gemfile",
-    "Gemfile.lock",
-    "gulpfile.js",
-    "node_modules",
-    "package.json",
-  ]
