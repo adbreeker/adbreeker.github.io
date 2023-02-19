@@ -23,7 +23,6 @@ public class Avatar : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
-        Debug.Log(isGrounded);
         Movement();
         Gravity();
     }
