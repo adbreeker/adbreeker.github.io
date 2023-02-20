@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07fe8eaf6491b374ba412d5e6c8a0295
+guid: d778b9be6a2f5a24a800f01f1c4f3cf0
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
@@ -7,33 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Ceiling
-    second: {fileID: 2100000, guid: d546bf2fdd2bcdf4c9ba009991265ad9, type: 2}
+      name: metal
+    second: {fileID: 2100000, guid: 6037d98176a9cb24699ea17e73ac33f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Concrete
-    second: {fileID: 2100000, guid: 0ce65b0be5aa5054899d8bfe025f1e91, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Floor
-    second: {fileID: 2100000, guid: f94b2fe82c93d534ca14dc68fbf9bebc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Painting
-    second: {fileID: 2100000, guid: 2889c585cfe374847adeeab676d30c41, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Roof
-    second: {fileID: 2100000, guid: 7da58430b2e415548bbf165f6cccedc8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Walls
-    second: {fileID: 2100000, guid: b1eb73253d01593448ae1fd859980b00, type: 2}
+      name: wood
+    second: {fileID: 2100000, guid: 82539b7be23b078429f9f76f3eb0d037, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
