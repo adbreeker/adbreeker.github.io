@@ -7,13 +7,29 @@ public class GetPointedObject : MonoBehaviour
     public LayerMask raycastIgonore;
     public float raycastRange;
 
+    [Header("Interaction panel")]
+    public GameObject interactionPanel;
+
     void Update()
     {
         RaycastHit lookingAt;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out lookingAt, raycastRange, ~raycastIgonore, QueryTriggerInteraction.Collide))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * lookingAt.distance, Color.yellow);
-            Debug.Log(lookingAt.collider.gameObject.name);
+            Interactable potentialInteractable;
+            if(lookingAt.collider.gameObject.TryGetComponent<Interactable>(out potentialInteractable))
+            {
+                Debug.Log("Patrze na interactable");
+                InteractionPanel.interactableObject = potentialInteractable.interactableObject;
+                interactionPanel.SetActive(true);
+            }
+            else
+            {
+                interactionPanel.SetActive(false);
+            }
+        }
+        else
+        {
+            interactionPanel.SetActive(false);
         }
     }
 }
