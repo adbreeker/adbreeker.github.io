@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 public class MailPanel : MonoBehaviour
 {
-    public TextMeshProUGUI senderName, email, message;
+    public TMP_InputField senderName, email, message;
 
     private void OnEnable()
     {
@@ -73,10 +73,15 @@ public class MailPanel : MonoBehaviour
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Error sending email: " + www.error);
+            message.text = www.error;
         }
         else
         {
             Debug.Log("Email sent successfully!");
+            senderName.text = "";
+            email.text = "";
+            message.text = "";
+
         }
     }
 
