@@ -21,18 +21,28 @@ public class InteractionPanel : MonoBehaviour
 
     void Update()
     {
+        InteractListener();
+    }
+
+    private void OnEnable()
+    {
         panelIcon.sprite = interactableObject.icon.sprite;
         panelObjectName.text = interactableObject.objectName;
         panelDescription.text = interactableObject.description;
-
-        InteractListener();
     }
 
     void InteractListener()
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            Application.OpenURL(interactableObject.url);
+            if(interactableObject.type == 0)
+            {
+                Application.OpenURL(interactableObject.url);
+            }
+            else
+            {
+                interactableObject.specialObject.SetActive(true);
+            }
         }
     }
 }
