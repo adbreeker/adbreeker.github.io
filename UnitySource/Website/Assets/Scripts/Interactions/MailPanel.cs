@@ -62,12 +62,8 @@ public class MailPanel : MonoBehaviour
         // Create a new UnityWebRequest object
         UnityWebRequest www = UnityWebRequest.Post(url, form);
 
-        // Set the headers to accept JSON data and disable caching
-        www.SetRequestHeader("Accept", "application/json");
-        www.SetRequestHeader("Cache-Control", "no-cache");
 
-        www.SetRequestHeader("Access-Control-Allow-Headers", "acces-control-allow-origin, Origin, X-Requested-With, Content-Type, Accept, Authorization");
-        www.SetRequestHeader("Access-Control-Allow-Origin", "*");
+        www.SetRequestHeader("Access-Control-Allow-Origin", "adbreeker.github.io");
         
 
         // Send the request and wait for a response
