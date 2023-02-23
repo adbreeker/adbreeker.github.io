@@ -66,6 +66,10 @@ public class MailPanel : MonoBehaviour
         www.SetRequestHeader("Accept", "application/json");
         www.SetRequestHeader("Cache-Control", "no-cache");
 
+        www.SetRequestHeader("Access-Control-Allow-Headers", "acces-control-allow-origin, Origin, X-Requested-With, Content-Type, Accept, Authorization");
+        www.SetRequestHeader("Access-Control-Allow-Origin", "*");
+        
+
         // Send the request and wait for a response
         yield return www.SendWebRequest();
 
