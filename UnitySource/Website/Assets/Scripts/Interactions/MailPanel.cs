@@ -61,9 +61,6 @@ public class MailPanel : MonoBehaviour
 
         // Create a new UnityWebRequest object
         UnityWebRequest www = UnityWebRequest.Post(url, form);
-
-
-        www.SetRequestHeader("Access-Control-Allow-Origin", "adbreeker.github.io");
         
 
         // Send the request and wait for a response
