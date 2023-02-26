@@ -18,7 +18,6 @@ public class GetPointedObject : MonoBehaviour
             Interactable potentialInteractable;
             if(lookingAt.collider.gameObject.TryGetComponent<Interactable>(out potentialInteractable))
             {
-                Debug.Log("Patrze na interactable");
                 InteractionPanel.interactableObject = potentialInteractable.interactableObject;
                 interactionPanel.SetActive(true);
             }

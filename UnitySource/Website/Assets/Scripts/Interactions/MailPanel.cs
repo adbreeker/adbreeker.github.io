@@ -61,7 +61,6 @@ public class MailPanel : MonoBehaviour
 
         // Create a new UnityWebRequest object
         UnityWebRequest www = UnityWebRequest.Post(url, form);
-        
 
         // Send the request and wait for a response
         yield return www.SendWebRequest();
@@ -69,8 +68,11 @@ public class MailPanel : MonoBehaviour
         // Check for errors
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError("Error sending email: " + www.error);
-            message.text = www.error;
+            Debug.Log("Result: " + www.result);
+            Debug.Log("Response code: " + www.responseCode);
+            Debug.Log("Error: " + www.error);
+            Debug.Log("isDone: " + www.isDone);
+            Debug.Log("Download handler: " + www.downloadHandler);
         }
         else
         {
@@ -78,7 +80,6 @@ public class MailPanel : MonoBehaviour
             senderName.text = "";
             email.text = "";
             message.text = "";
-
         }
     }
 
