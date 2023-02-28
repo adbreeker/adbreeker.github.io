@@ -72,7 +72,7 @@ public class MailPanel : MonoBehaviour
             Debug.Log("Response code: " + www.responseCode);
             Debug.Log("Error: " + www.error);
             Debug.Log("isDone: " + www.isDone);
-            Debug.Log("Download handler: " + www.downloadHandler);
+            Debug.Log("Download handler: " + www.downloadHandler.text);
         }
         else
         {
