@@ -5,13 +5,8 @@ public class Avatar : MonoBehaviour
     public float speed = 5f;
     public float jumpHeight = 3f;
     public float gravityForce = -9.81f;
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.3f;
-    public LayerMask groundMask;
-
 
     CharacterController cc;
-    bool isGrounded = true;
 
     Vector3 velocity;
 
@@ -22,17 +17,22 @@ public class Avatar : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
+        Debug.Log(cc.isGrounded);
         Movement();
         Gravity();
     }
 
     void Movement()
     {
-        //walking
+        //jumping
+        if (Input.GetButtonDown("Jump") && cc.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityForce);
+        }
+
+        //walk direction
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
         Vector3 direction = transform.right * horizontal + transform.forward * vertical;
 
         //walking
@@ -44,12 +44,6 @@ public class Avatar : MonoBehaviour
         else
         {
             GetComponent<Animator>().SetBool("isWalking", false);
-        }
-        
-        //jumping
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityForce);
         }
 
         //sprinting
@@ -65,7 +59,7 @@ public class Avatar : MonoBehaviour
     }
     void Gravity()
     {
-        if(isGrounded && velocity.y < -2f)
+        if(cc.isGrounded && velocity.y < -2f)
         {
             velocity.y = -2f;
         }
