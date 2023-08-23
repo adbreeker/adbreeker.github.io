@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Avatar : MonoBehaviour
 {
-    public float speed = 5f;
-    public float jumpHeight = 3f;
-    public float gravityForce = -9.81f;
+    public float speed;
+    public float jumpHeight;
+    public float gravityForce;
 
     CharacterController cc;
 
-    Vector3 velocity;
+    Vector3 velocity = Vector3.zero;
 
     void Start()
     {
@@ -24,12 +24,6 @@ public class Avatar : MonoBehaviour
 
     void Movement()
     {
-        //jumping
-        if (Input.GetButtonDown("Jump") && cc.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityForce);
-        }
-
         //walk direction
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -38,24 +32,36 @@ public class Avatar : MonoBehaviour
         //walking
         if(direction.magnitude > 0)
         {
-            cc.Move(direction.normalized * speed * Time.deltaTime);
+            velocity.x = direction.normalized.x * speed;
+            velocity.z = direction.normalized.z * speed;
             GetComponent<Animator>().SetBool("isWalking", true);
         }
         else
         {
+            velocity.x = 0;
+            velocity.z = 0;
             GetComponent<Animator>().SetBool("isWalking", false);
         }
 
         //sprinting
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            cc.Move(direction.normalized * speed * Time.deltaTime);
+            velocity.x = direction.normalized.x * speed * 2;
+            velocity.z = direction.normalized.z * speed * 2;
             GetComponent<Animator>().SetBool("isRunning", true);
         }
         else
         {
             GetComponent<Animator>().SetBool("isRunning", false);
         }
+
+        //jumping
+        if (Input.GetButtonDown("Jump") && cc.isGrounded)
+        {
+            velocity.y = jumpHeight;
+        }
+
+        cc.Move(velocity * Time.deltaTime);
     }
     void Gravity()
     {
@@ -65,6 +71,5 @@ public class Avatar : MonoBehaviour
         }
 
         velocity.y += gravityForce * Time.deltaTime;
-        cc.Move(velocity * Time.deltaTime);
     }
 }

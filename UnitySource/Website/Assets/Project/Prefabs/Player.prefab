@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  jumpHeight: 2.5
+  jumpHeight: 10
   gravityForce: -19.62
 --- !u!1 &7799991752055047493
 GameObject:

@@ -8,6 +8,7 @@ public class CameraMovement : MonoBehaviour
     public float mouseSensitivity = 100f;
     
     public Transform playerBody;
+    public Transform playerHead;
 
     float xRotation = 0f;
 
@@ -28,7 +29,18 @@ public class CameraMovement : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, zRotation);
+        if(xRotation >= 0f)
+        {
+            playerHead.transform.localRotation = Quaternion.Euler(0, -90, 0);
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, zRotation);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, yRotation, zRotation);
+            playerHead.transform.localRotation = Quaternion.Euler(0, -90, -xRotation);
+        }
+
+        
         playerBody.Rotate(Vector3.up * mouseX);
     }
 }
