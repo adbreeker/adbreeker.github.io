@@ -12,6 +12,7 @@ public class Avatar : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         cc = GetComponent<CharacterController>();
     }
 
