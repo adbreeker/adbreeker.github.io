@@ -18,7 +18,6 @@ public class Avatar : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(cc.isGrounded);
         Movement();
         Gravity();
     }
